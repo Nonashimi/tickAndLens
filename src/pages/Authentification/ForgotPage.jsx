@@ -9,18 +9,15 @@ export const ForgotPage = () =>{
     const [isCorrect, setIsCorrect] = useState(false);
     const [verificationCode, setCode] = useState('');
     const navigate = useNavigate();
-
-    /**
-     * Handles the forgot password request
-     * @param {React.FormEvent<HTMLFormElement>} e - The form event
-     */
+    const url = `http://localhost:9000/auth/forgot/password?email=${email}`;
+    const urlVer = `http://localhost:9000/auth/forgot/password/verify?email=${email}&verificationCode=${verificationCode}`;
     const handleForgotPassword = (e) => {
         e.preventDefault();
         setLoading(true); // Show loader while waiting for the response
 
         // Make the request
         axios
-            .post('http://localhost:9000/auth/forgot/password', { email })
+            .post(url)
             .then((res) => {
                 const message = res.data.message || 'Email is correct';
                 alert(message);
@@ -37,7 +34,7 @@ export const ForgotPage = () =>{
     const handleVerifyPassword = (e) =>{
         e.preventDefault();
         axios
-            .post('http://localhost:9000/auth/forgot/password/verify', { email, verificationCode })
+            .post(urlVer)
             .then((res) => {
                 // Show the success message
                 const message = res.data.message || 'Email is correct';
@@ -71,8 +68,9 @@ export const ForgotPage = () =>{
                     </button>
                 </form>
                 {loading && <div className="loader"></div>} {/* Loader Display */}
-                {isCorrect? <form className="redirect-login" onSubmit={handleVerifyPassword}>
-                <input
+                {isCorrect? <form className="loginsignup-fields" onSubmit={handleVerifyPassword}>
+                <input 
+                        
                         type="text"
                         placeholder="Enter verification code"
                         value={verificationCode}

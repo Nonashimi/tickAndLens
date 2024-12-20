@@ -7,13 +7,14 @@ const NewPasswordPage = () => {
     const [newPassword, setNewPassword] = useState("");
     const location = useLocation();
     const navigate = useNavigate();
-    const email = location.state?.email; 
+    const email = location.state?.email;
+    const urlOfNewPass = `http://localhost:9000/auth/reset/password?email=${email}&newPassword=${newPassword}`;
     const handleNewPassword = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost:9000/auth/reset/password', { email, newPassword })
+            .post(urlOfNewPass)
             .then(() => {
-                navigate('/authentification/login');
+                navigate('/authentification/sign_in');
             })
             .catch((err) => {
                 console.error(err);
