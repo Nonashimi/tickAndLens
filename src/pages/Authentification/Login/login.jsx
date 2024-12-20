@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import "./login.css"
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -35,13 +35,18 @@ const Login = () => {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     <input
-
-                    
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                    <div className="flex justify-between">
+                        <NavLink to = "/authentification/forgot">
+                            forgot your password?
+                        </NavLink>
+                        <NavLink to = {"/authentification/sign_up"}>Sign Up Here</NavLink>
+                    </div>
+
                     <button type="submit">Login</button>
                 </form>
             </div>

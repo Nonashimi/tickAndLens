@@ -19,7 +19,7 @@ const Signup = () => {
             .then((res) => {
                 const message = res.data.message || 'User registered successfully!';
                 alert(message);
-                navigate('/verify', { state: { email } }); // Pass email to Verify page
+                navigate('/authentification/verify', { state: { email } }); // Pass email to Verify page
             })
             .catch((err) => {
                 const errorMessage = err.response?.data?.message || 'Registration failed!';
