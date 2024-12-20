@@ -17,7 +17,7 @@
     "web-vitals": "^4.2.4"
   },
   "scripts": {
-    "start": "PORT=9000 react-scripts start",
+    "start": "cross-env PORT=9000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,5 +44,8 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
 }

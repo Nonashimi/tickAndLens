@@ -14,7 +14,7 @@ const Verify = () => {
         axios
             .post('http://localhost:9000/auth/verify', { email, verificationCode })
             .then(() => {
-                navigate('/login'); // Redirect to Login page without alert
+                navigate('/authentification/login'); // Redirect to Login page without alert
             })
             .catch((err) => {
                 console.error(err);
