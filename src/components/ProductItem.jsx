@@ -1,8 +1,12 @@
-import React from 'react';
-import {NavLink} from "react-router-dom"
-const ProductItem = ({ image, title, price }) => {
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import {NavLink, useNavigate} from "react-router-dom"
+import { fetchProduct } from '../redux/slices/productSlice';
+const ProductItem = ({ image, title, price, id}) => {
+  const navigate = useNavigate();
+ 
   return (
-    <NavLink to={"1"}>
+    <div onClick={() => navigate(`${id}`)}>
          <div className="flex flex-col items-center w-full gap-[40px]">
             <img src={image} alt={title} />
             <div className="w-full flex flex-col items-center w-full gap-[20px]">
@@ -12,7 +16,7 @@ const ProductItem = ({ image, title, price }) => {
                 </div>
             </div>
         </div>
-    </NavLink>
+    </div>
    
   );
 };

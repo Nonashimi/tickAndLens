@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductsByCategoryAndBrand } from '../../redux/slices/productSlice';
 const GlassesPage = () => {
   const items = useSelector(state => state.products.items)
-  console.log(items);
   const dispatch = useDispatch();
   const fetchProducts = async() =>{
-    await dispatch(fetchProductsByCategoryAndBrand());
+    await dispatch(fetchProductsByCategoryAndBrand({id: 2}));
   }
   useEffect(() =>{
     fetchProducts();

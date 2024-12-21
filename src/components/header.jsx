@@ -11,7 +11,7 @@ const Header = () => {
   const to = [
     "/home/watch",
     "/home/glasses",
-    "/home/jewelry"
+    "/home/jewelerly"
   ];
   const dispatch = useDispatch();
   const fetchCategory = async () => {
@@ -53,6 +53,7 @@ const Header = () => {
        categories.map((category, index) => 
             <li>
             <NavLink
+              id = {index}
               to= {to[index]}
               className={({ isActive }) =>
                 isActive

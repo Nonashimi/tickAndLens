@@ -6,6 +6,8 @@ import {Navigate} from "react-router-dom"
 import GlassesPage from '../pages/Home/GlassesPage';
 import ProductPage from '../pages/Home/ProductPage';
 import BacketPage from '../pages/Home/BacketPage';
+import { WatchPage } from '../pages/Home/WatchPage';
+import { JewelerlyPage } from '../pages/Home/JewelerlyPage';
 const HomeRouter = () => {
   return (
     <Routes>
@@ -14,6 +16,10 @@ const HomeRouter = () => {
         <Route path='contacts' element = {<ContactPage/>}/>
         <Route path='glasses/*' element = {<GlassesPage/>}/>
         <Route path='glasses/:id' element = {<ProductPage/>}/>
+        <Route path = "watch/*" element = {<WatchPage/>}/>
+        <Route path='watch/:id' element = {<ProductPage/>}/>
+        <Route path = "jewelerly/*" element = {<JewelerlyPage/>}/>
+        <Route path='jewelerly/:id' element = {<ProductPage/>}/>
         <Route path='backet' element = {<BacketPage/>}/>
     </Routes>
   )
